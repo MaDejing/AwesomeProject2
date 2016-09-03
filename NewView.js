@@ -7,20 +7,21 @@
 // // requireNativeComponent 自动把这个组件提供给 "MyNewViewManager"
 // module.exports = requireNativeComponent('MyNewView', null);
 
-import React from 'react';
-import { requireNativeComponent, PropTypes, ScrollView } from 'react-native';
+// import React from 'react';
+// import { requireNativeComponent, PropTypes, ScrollView } from 'react-native';
+
+import React, { Component, PropTypes } from 'react';
+import { requireNativeComponent, ScrollView } from 'react-native';
 
 var MyNewView = requireNativeComponent('MyNewView', NewView);
 
-class NewView extends ScrollView {
+export default class NewView extends ScrollView {
   static propTypes = {
-    ...ScrollView.propTypes,
+    ...ScrollView.propTypes
   };
 
   constructor(props) {
     super(props);
-
-    console.log(props);
   }
 
   render() {
@@ -28,4 +29,20 @@ class NewView extends ScrollView {
   }
 }
 
-module.exports = NewView;
+// class NewView extends ScrollView {
+//   static propTypes = {
+//     ...ScrollView.propTypes,
+//   };
+
+//   constructor(props) {
+//     super(props);
+
+//     console.log(props);
+//   }
+
+//   render() {
+//     return <MyNewView {...this.props} />;
+//   }
+// }
+
+// module.exports = NewView;

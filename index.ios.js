@@ -21,7 +21,8 @@ import {
   NativeModules
 } from 'react-native';
 
-var NewView = require('./NewView');
+// var NewView = require('./NewView');
+import NewView from './NewView';
 const MyNewViewManager = NativeModules.MyNewViewManager;
 const { width, height } = Dimensions.get('window');
 
@@ -32,7 +33,7 @@ class AwesomeProject2 extends Component {
 
     this.state = {
       mobile: '',
-      vcode: ''
+      vcode: '',
     };
   }
 
@@ -44,7 +45,6 @@ class AwesomeProject2 extends Component {
         {"firstName": "Peter", "lastName": "Jones"}
       ]
     };
-    // console.log(json);
     // MyNewViewManager.printLog(json, () => {});
   }
 
@@ -60,42 +60,78 @@ class AwesomeProject2 extends Component {
 
   render() {
     return (
-      <Modal>
-        <View
-          {...this._gestureHandlers}
-          style={styles.modal}
-        >
-        </View>
+      // <Modal>
+      //   <View
+      //     {...this._gestureHandlers}
+      //     style={styles.modal}
+      //   >
+      //   </View>
 
         <NewView style={styles.container}>
           <View style={styles.wrap}>
-            <View style={styles.itemWrap}>
-              <View style={styles.textCon}>
-                <TextInput ref="mobile"
-                           onChangeText={(text) => this.setState({mobile: text})}
-                           keyboardType="phone-pad"
-                           maxLength={11}
-                           value={this.state.mobile}
-                           placeholder="手机号码"
-                           style={styles.text}/>
+            <View>
+              <View style={styles.itemWrap}>
+                <View style={styles.textCon}>
+                    <TextInput ref="mobile01" tag={10001}
+                               onChangeText={(text) => this.setState({mobile: text})}
+                               keyboardType="phone-pad"
+                               maxLength={11}
+                               value={this.state.mobile}
+                               placeholder="手机号码"
+                               style={styles.text}/>
+                </View>
+                <View style={[styles.zoneCode, styles.center]}>
+                  <Text style={{color: 'rgba(31, 31, 31, 0.5)', fontSize: 18, backgroundColor: '#fff'}}>+86</Text>
+                </View>
               </View>
-              <View style={[styles.zoneCode, styles.center]}>
-                <Text style={{color: 'rgba(31, 31, 31, 0.5)', fontSize: 18, backgroundColor: '#fff'}}>+86</Text>
+
+              <View style={styles.itemWrap}>
+                <View style={styles.textCon}>
+                  <TextInput ref="mobile02"
+                             onChangeText={(text) => this.setState({mobile: text})}
+                             keyboardType="phone-pad"
+                             maxLength={11}
+                             value={this.state.mobile}
+                             placeholder="手机号码"
+                             style={styles.text}/>
+                </View>
+                <View style={[styles.zoneCode, styles.center]}>
+                  <Text style={{color: 'rgba(31, 31, 31, 0.5)', fontSize: 18, backgroundColor: '#fff'}}>+86</Text>
+                </View>
               </View>
             </View>
 
-            <View style={styles.itemWrap}>
-              <View style={styles.textCon}>
-                <TextInput ref="code"
-                           onChangeText = {(text) => this.setState({vcode: text})}
-                           value={this.state.vcode}
-                           maxLength={6}
-                           keyboardType="numeric"
-                           placeholder="验证码"
-                           returnKeyType={ 'done' }
-                           style={[styles.text, {paddingLeft: 20}]} />
+            <View><View>
+              <View style={styles.itemWrap}>
+                <View style={styles.textCon}>
+                  <TextInput ref="mobile03"
+                             onChangeText={(text) => this.setState({mobile: text})}
+                             keyboardType="phone-pad"
+                             maxLength={11}
+                             value={this.state.mobile}
+                             placeholder="手机号码"
+                             style={styles.text}/>
+                </View>
+                <View style={[styles.zoneCode, styles.center]}>
+                  <Text style={{color: 'rgba(31, 31, 31, 0.5)', fontSize: 18, backgroundColor: '#fff'}}>+86</Text>
+                </View>
               </View>
-            </View>
+
+              <View style={styles.itemWrap}>
+                <View style={styles.textCon}>
+                  <View>
+                    <TextInput ref="code"
+                               onChangeText = {(text) => this.setState({vcode: text})}
+                               value={this.state.vcode}
+                               maxLength={6}
+                               keyboardType="numeric"
+                               placeholder="验证码"
+                               returnKeyType={ 'done' }
+                               style={[styles.text, {paddingLeft: 20}]} />
+                  </View>
+                </View>
+              </View>
+            </View></View>
 
             <Text style={{color: '#fff', fontSize: 11, textAlign: 'center', marginBottom: 10}}>您的手机号只用来接收验证码，我们不会保留任何相关数据</Text>
 
@@ -118,7 +154,7 @@ class AwesomeProject2 extends Component {
             </TouchableOpacity>
           </View>
         </NewView>
-      </Modal>
+      // </Modal>
     );
   }
 }
@@ -145,7 +181,7 @@ const styles = StyleSheet.create({
   },
   wrap: {
     // flex: 1,
-    paddingTop: 500,
+    paddingTop: 300,
     flexDirection: 'column',
     alignItems: 'center'
   },

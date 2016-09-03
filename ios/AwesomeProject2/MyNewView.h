@@ -11,7 +11,7 @@
 
 @interface MyNewView : RCTScrollView
 
-@property (nonatomic, assign) BOOL isTrue;
+//@property (nonatomic, strong) NSArray *textInputArr;
 
 //- (void)showLabel;
 

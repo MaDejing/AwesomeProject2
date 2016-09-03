@@ -20,15 +20,16 @@
 
 RCT_EXPORT_MODULE()
 
-//RCT_CUSTOM_VIEW_PROPERTY(isTrue, BOOL, MyNewView) {
-//    BOOL is = [RCTConvert BOOL:json];
-//    [view setIsTrue:is];
+//RCT_CUSTOM_VIEW_PROPERTY(textInputArr, NSArray, MyNewView) {
+//    NSArray *arr = [RCTConvert NSArray:json];
+//    [view setTextInputArr:arr];
+//    [view getEditingTextInput];
 ////    [view showLabel];
 //}
 
 - (UIView *)view {
     MyNewView *newView = [[MyNewView alloc] initWithEventDispatcher:self.bridge.eventDispatcher];
-
+    
     return newView;
 }
 
